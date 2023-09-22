@@ -7,7 +7,7 @@ int main(int argc, char *argv[]){
     Employee employee[50];
 
 
-    while(1){
+    while(1) {
         printf("\n1->Add Employee Details\n2->Show Employee Details\n3->Show All Employee\n4->Delete Employee Details\n5->EXIT\n");
         printf("Enter your choice:  ");
         scanf("%d", &ch);
