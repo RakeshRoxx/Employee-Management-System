@@ -1,9 +1,10 @@
-typedef struct Date{
+typedef struct Date
+{
     int day, month, year;
-}Date;
+} Date;
 
-
-typedef struct Employee{
+typedef struct Employee
+{
     int empId;
     char empFirstName[25];
     char empMiddleName[25];
