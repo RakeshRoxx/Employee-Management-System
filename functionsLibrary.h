@@ -20,36 +20,33 @@ void setEmployeeDetails(Employee employee[], int *currentIndex)
     scanf("%s", emp.empFirstName);
     while (!validateName(emp.empFirstName))
     {
-        printf("Name is not valid (Special Character, Number not allowed.\n");
+        printf("Name is not valid (Special Character, Numbers, Empty and Spaces are not allowed.\n");
         printf("Enter First Name of the Employee: ");
         scanf("%s", emp.empFirstName);
-    }
-    while ((getchar()) != '\n')
-        ;
-    printf("Enter Middle Name of the Employee: ");
-    fgets(emp.empMiddleName, 25, stdin);
-    if (strlen(emp.empMiddleName) == 1)
-    {
-        emp.empMiddleName[0] = '\0';
-    }
-    while (!validateName(emp.empMiddleName))
-    {
-        printf("Name is not valid (Special Character, Number not allowed.\n");
-        printf("Enter Middle Name of the Employee: ");
-        scanf("%s", emp.empMiddleName);
     }
     printf("Enter last Name of the Employee: ");
     scanf("%s", emp.empLastName);
     while (!validateName(emp.empLastName))
     {
-        printf("Name is not valid (Special Character, Number not allowed.\n");
+        printf("Name is not valid (Special Character, Numbers, Empty and Spaces are not allowed.\n");
         printf("Enter Last Name of the Employee: ");
         scanf("%s", emp.empLastName);
     }
     printf("Enter Basic Salary: ");
-    scanf("%d", &emp.basicSalary);
+    scanf("%f", &emp.basicSalary);
+    while (!isValidSalary(emp.basicSalary))
+    {
+        printf("Enter valid salary.\n");
+        printf("Enter Basic Salary: ");
+        scanf("%f", &emp.basicSalary);
+    }
     printf("Enter the Hire Date (DD/MM/YYYY): ");
     scanf("%d/%d/%d", &emp.hireDate.day, &emp.hireDate.month, &emp.hireDate.year);
+
+    emp.DA = emp.basicSalary * .4;
+    emp.TA = emp.basicSalary * .1;
+    emp.HRA = emp.basicSalary * .05;
+
     employee[(*currentIndex)++] = emp;
     return;
 }
@@ -78,8 +75,11 @@ void printEmployeeDetails(Employee emp)
 {
     printf("\n==========================================================\n");
     printf("\nEmployee Id: %d", emp.empId);
-    printf("\nEmployee Name: %s %s %s", emp.empFirstName, emp.empMiddleName, emp.empLastName);
-    printf("\nEmployee Basic Salary: %.2f", emp.basicSalary);
+    printf("\nEmployee Name: %s %s", emp.empFirstName, emp.empLastName);
+    printf("\nEmployee Basic Salary: %8.2f", emp.basicSalary);
+    printf("\nDA = %6.2f", emp.DA);
+    printf("\nTA = %6.2f", emp.TA);
+    printf("\nHRA = %6.2f", emp.HRA);
     printf("\n\n==========================================================\n");
 }
 
