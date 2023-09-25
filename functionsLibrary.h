@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "employeeStructure.c"
+#include "validation.h"
 
 // Functions Signatures
 void setEmployeeDetails(Employee[], int *);
@@ -17,6 +18,12 @@ void setEmployeeDetails(Employee employee[], int *currentIndex)
     scanf("%d", &emp.empId);
     printf("Enter First Name of the Employee: ");
     scanf("%s", emp.empFirstName);
+    while (!validateName(emp.empFirstName))
+    {
+        printf("Name is not valid (Special Character, Number not allowed.\n");
+        printf("Enter First Name of the Employee: ");
+        scanf("%s", emp.empFirstName);
+    }
     while ((getchar()) != '\n')
         ;
     printf("Enter Middle Name of the Employee: ");
@@ -25,8 +32,20 @@ void setEmployeeDetails(Employee employee[], int *currentIndex)
     {
         emp.empMiddleName[0] = '\0';
     }
+    while (!validateName(emp.empMiddleName))
+    {
+        printf("Name is not valid (Special Character, Number not allowed.\n");
+        printf("Enter Middle Name of the Employee: ");
+        scanf("%s", emp.empMiddleName);
+    }
     printf("Enter last Name of the Employee: ");
     scanf("%s", emp.empLastName);
+    while (!validateName(emp.empLastName))
+    {
+        printf("Name is not valid (Special Character, Number not allowed.\n");
+        printf("Enter Last Name of the Employee: ");
+        scanf("%s", emp.empLastName);
+    }
     printf("Enter Basic Salary: ");
     scanf("%d", &emp.basicSalary);
     printf("Enter the Hire Date (DD/MM/YYYY): ");
