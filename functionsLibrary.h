@@ -120,9 +120,15 @@ void deleteEmployee(Employee employee[], int *currentArrayIndexPosition)
 void showAllEmployeeDetails(Employee employee[], int *currentArrayIndexPosition)
 {
     int i;
+    if (*currentArrayIndexPosition == 0)
+    {
+        printf("No Data Available.\n\n");
+        return;
+    }
+    printf("Employee ID\t First Name\tLast Name\tBasic Salary\tDA\tTA\tHRA\tHire Date\n");
     for (i = 0; i < (*currentArrayIndexPosition); i++)
     {
-        printf("EMP ID : %d\n", employee[i].empId);
+        printf("%d\t\t%s\t\t%s\t\t%6.2f\t%6.2f\t%6.2f\t%6.2f\t\t%d/%d/%d\n", employee[i].empId, employee[i].empFirstName, employee[i].empLastName, employee[i].basicSalary, employee[i].DA, employee[i].TA, employee[i].HRA, employee[i].hireDate.day, employee[i].hireDate.month, employee[i].hireDate.year);
     }
     return;
 }
