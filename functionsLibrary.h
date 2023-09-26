@@ -42,6 +42,11 @@ void setEmployeeDetails(Employee employee[], int *currentIndex)
     }
     printf("Enter the Hire Date (DD/MM/YYYY): ");
     scanf("%d/%d/%d", &emp.hireDate.day, &emp.hireDate.month, &emp.hireDate.year);
+    while (!isValidDate(emp.hireDate.day, emp.hireDate.month, emp.hireDate.year))
+    {
+        printf("Enter a valid date.\n");
+        scanf("%d/%d/%d", &emp.hireDate.day, &emp.hireDate.month, &emp.hireDate.year);
+    }
 
     emp.DA = emp.basicSalary * .4;
     emp.TA = emp.basicSalary * .1;
