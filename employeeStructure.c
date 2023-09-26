@@ -11,6 +11,6 @@ typedef struct Employee
     float basicSalary;
     float DA;
     float TA;
-    float HRA;
+    float PF;
     Date hireDate;
 } Employee;

@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 
     while (1)
     {
-        printf("\n1->Add Employee Details\n2->Show Employee Details\n3->Show All Employee\n4->Delete Employee Details\n5->EXIT\n");
+        printf("\n1->Add Employee Details\n2->Show Employee Details\n3->Show All Employee\n4->Update Employee Details\n5->Delete Employee Details\n6->Get Net Salary\n7->EXIT!!!\n");
         printf("Enter your choice:  ");
         scanf("%d", &ch);
         switch (ch)
@@ -24,9 +24,15 @@ int main(int argc, char *argv[])
             showAllEmployeeDetails(employee, &currentArrayIndexPosition);
             break;
         case 4:
-            deleteEmployee(employee, &currentArrayIndexPosition);
+            updateEmployeeDetails(employee, &currentArrayIndexPosition);
             break;
         case 5:
+            deleteEmployee(employee, &currentArrayIndexPosition);
+            break;
+        case 6:
+            getNetSalary(employee, &currentArrayIndexPosition);
+            break;
+        case 7:
             exit(0);
             break;
         default:
